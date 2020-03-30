@@ -9,6 +9,7 @@ import { HelloComponent } from './hello.component';
 import { ModalComponent } from './modal/modal.component';
 
 import { NgModalComponent } from './ng-modal/ng-modal.component';
+import { AddNewItemComponent } from './add-new-item/add-new-item.component';
 
 @NgModule({
  imports: [
@@ -18,7 +19,8 @@ import { NgModalComponent } from './ng-modal/ng-modal.component';
   ],
   declarations: [
     AppComponent,
-    NgModalComponent
+    NgModalComponent,
+    AddNewItemComponent
   ],
   bootstrap: [AppComponent],
   entryComponents: [NgModalComponent]
