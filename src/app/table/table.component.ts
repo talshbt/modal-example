@@ -2,6 +2,8 @@ import { Component, ViewChild, ViewContainerRef, OnInit } from '@angular/core';
 import {TableService} from '../shared/table.service'
 import { AddNewItemComponent } from '../add-new-item/add-new-item.component';
 import { Subscription } from "rxjs";
+import { NgModalComponent } from '../ng-modal/ng-modal.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-table',
@@ -13,7 +15,7 @@ export class TableComponent implements OnInit {
   cols = [];
   rowDetailsArr = [];
 
-  constructor(private tableService: TableService) { }
+  constructor(private _NgbModal: NgbModal, private tableService: TableService) { }
 
   ngOnInit() {
      this.sub = this.tableService.rowAdded.subscribe(
@@ -32,6 +34,31 @@ export class TableComponent implements OnInit {
   async onAdd() {
     // this.tableService.getModalEvent();
     // console.log(await this.modalService.open(AddNewItemComponent));
+  }
+
+   openModal() {
+    this._NgbModal.open(NgModalComponent, {
+      windowClass: 'modal-job-scrollable'
+    });
+
+    // upwrap the "app-ng-modal" data to enable the "modal-dialog-scrollable"
+    // and make the modal scrollable
+    (() => {
+      const node: HTMLElement | null = document.querySelector('app-ng-modal');
+      if (node) {
+        while (node.firstChild) {
+          (node.parentNode as HTMLElement).insertBefore(node.firstChild, node);
+        }
+      }
+      // make the modal scrollable by adding the class .modal-dialog-scrollable
+      // here wait for one second so that we can find the .modal-dialog
+      setTimeout(() => {
+        const modalDialog = document.querySelector('.modal-job-scrollable .modal-dialog');
+        if (modalDialog) {
+          modalDialog.classList.add('modal-dialog-scrollable');
+        }
+      }, 1000)
+    })();
   }
 
 }
