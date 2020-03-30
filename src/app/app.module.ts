@@ -11,6 +11,7 @@ import { ModalComponent } from './modal/modal.component';
 import { NgModalComponent } from './ng-modal/ng-modal.component';
 import { AddNewItemComponent } from './add-new-item/add-new-item.component';
 import { TableService } from './shared/table.service';
+import { TableComponent } from './table/table.component';
 
 @NgModule({
  imports: [
@@ -21,7 +22,8 @@ import { TableService } from './shared/table.service';
   declarations: [
     AppComponent,
     NgModalComponent,
-    AddNewItemComponent
+    AddNewItemComponent,
+    TableComponent
   ],
   bootstrap: [AppComponent],
   entryComponents: [NgModalComponent],
