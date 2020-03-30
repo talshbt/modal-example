@@ -59,11 +59,9 @@ export class AddNewItemComponent implements OnInit {
     console.log("createObj")
     var rowDetails = { };
       for(var i = 0 ; i < this.cols.length; ++i){
-        // rowDetails.push(this.signupForm.value[this.cols[i]]);
         rowDetails[this.cols[i]] = this.signupForm.value[this.cols[i]];
       }
 
-      // console.log(rowDetails);
       return rowDetails;
 
 
