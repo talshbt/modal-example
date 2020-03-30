@@ -1,0 +1,60 @@
+  
+  <div>
+  <hr>
+  <div  class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1  col-md-offset-2" [ngStyle]="{'opacity':isOpen ? '0.4' : '1' }"> 
+        <div class="row mt-3">
+            <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+
+		          <div class="form-group">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <input class="form-control input-lg" type="text" placeholder="Search" type="text" [(ngModel)]="searchText" >
+                  </div>
+                    <button  class="btn btn-primary">Search</button>
+                  </div>
+               	</div>
+		        </div>   
+       
+
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th *ngFor="let item of cols;" scope="col">{{item}}</th>
+				
+						</tr>
+					</thead>
+					<tbody>
+              <tr *ngFor="let row of rowDetailsArr; let i = index" style="cursor: pointer;">
+              <th scope="row"></th>
+
+							<td *ngFor="let col of cols; let j = index">{{row[col]}}</td>
+	
+
+						</tr>
+
+            
+					</tbody>
+          
+				</table>
+        <!-- <span> -->
+
+          <input style = "background-color:46ab46" type="button" value="Add" class="icons8-plus" (click)="onAdd()"/>
+
+ 
+                    <!-- <button class="btn btn-danger" (click)="onDeleteAll()">Delete All</button></span> -->
+
+
+				<div class="row">
+					<div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+						<!-- <router-outlet></router-outlet> -->
+					</div>
+				</div>
+				</div>
+  </div>
+
+
+  
+		    <!-- <ng-template appPlaceholder></ng-template> -->
+
+        
