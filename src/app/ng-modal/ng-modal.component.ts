@@ -22,6 +22,7 @@ constructor(
        this.sub = this.tableService.saveData.subscribe(
        (str) => {
          console.log(str)
+         this.activeModal.close('Close click');
 
       }
      )
