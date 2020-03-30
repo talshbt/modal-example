@@ -33,7 +33,8 @@ export class AddNewItemComponent implements OnInit {
   }
 
   onSubmit() {
-    
+          this.tableService.onSaveData();
+
     // let data:String = this.tableService.getCols()[0];
     // let cols = this.tableService.getCols();
     let rowDetails = [];

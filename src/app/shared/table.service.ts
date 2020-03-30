@@ -5,8 +5,9 @@ import { Subject } from "rxjs";
 export class TableService {
   modalOpened = new Subject<any>();
   rowAdded = new Subject<any>();
-  private cols = ["id","name","email"];
+  saveData = new Subject<any>();
 
+  private cols = ["id","name","email"];
    private rowsDetailsArr = [];
   private rowsDetailsObj = {};
 
@@ -21,7 +22,7 @@ export class TableService {
 
       this.rowsDetailsArr.push(row);
 
-      console.log("current rows arr : " );
+      // console.log("current rows arr : " );
 
       console.log(this.rowsDetailsArr);
 
@@ -36,6 +37,12 @@ export class TableService {
 
   getCols(){
     return this.cols;
+  }
+
+
+
+  onSaveData(){
+        this.saveData.next("save data in service");
   }
 
 }
