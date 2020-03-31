@@ -4,7 +4,7 @@ import { Subject } from "rxjs";
 @Injectable()
 export class TableService {
   modalOpened = new Subject<any>();
-  rowAdded = new Subject<any>();
+  rowChanged = new Subject<any>();
   saveData = new Subject<any>();
 
   private cols = ["id","name","email"];
@@ -21,16 +21,7 @@ export class TableService {
       // console.log(row);
 
       this.rowsDetailsArr.push(row);
-
-      // console.log("current rows arr : " );
-
-      // console.log(this.rowsDetailsArr);
-
-      // this.rowsDetailsObj = row;
-      // console.log("current row : " + row);
-      // console.log("current rows arr : " + this.rowsDetailsArr);
-
-      this.rowAdded.next(this.rowsDetailsArr.slice());
+      this.rowChanged.next(this.rowsDetailsArr.slice());
 
 
   }
@@ -42,7 +33,7 @@ export class TableService {
 
 
   onSaveData(){
-        this.saveData.next("save data in service");
+    this.saveData.next("save data in service");
   }
 
   deleteRow(indexRow){

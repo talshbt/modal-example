@@ -18,7 +18,7 @@ export class TableComponent implements OnInit {
   constructor(private _NgbModal: NgbModal, private tableService: TableService) { }
 
   ngOnInit() {
-     this.sub = this.tableService.rowAdded.subscribe(
+     this.sub = this.tableService.rowChanged.subscribe(
        (rowDetailsArr) => {
         this.rowDetailsArr = rowDetailsArr;
         // console.log("table get new row ");
