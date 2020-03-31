@@ -26,10 +26,7 @@
 					<tbody>
               <tr *ngFor="let row of rowDetailsArr; let i = index" style="cursor: pointer;">
               <th scope="row"></th>
-
 						  <td *ngFor="let col of cols; let j = index">{{row[col]}}</td>
-
-
             <td>
                 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                   <div class="btn-group mr-2" role="group" aria-label="First group">
@@ -50,7 +47,7 @@
 						</tr>
 
           	<div class = "add-btn-bottom">
-                <button class ="btn btn-success" id="but_add" (click)="openModal()"> <a href="javascript:void(0)" class="btn btn-default">
+                <button class ="btn btn-success" id="but_add" (click)="openModal()" > <a href="javascript:void(0)" class="btn btn-default">
                     <div class="icons8-plus" >
                 </div>
             </a>Add</button>

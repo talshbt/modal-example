@@ -12,6 +12,8 @@ export class AddNewItemComponent implements OnInit {
 
    @ViewChild("f", { static: false }) signupForm: NgForm;
     cols = [];
+    canClear = false;
+    rowDetails = { };
   // private fieldArray = ["id","name","email"];
 
   constructor( private tableService: TableService) { 
@@ -47,21 +49,26 @@ export class AddNewItemComponent implements OnInit {
 
       this.tableService.addRow(rowDetailsObj);
       this.signupForm.reset();
+    
+
 
   }
 
 
   createObj(){
     console.log("createObj")
-    var rowDetails = { };
+    
       for(var i = 0 ; i < this.cols.length; ++i){
-        rowDetails[this.cols[i]] = this.signupForm.value[this.cols[i]];
+        this.rowDetails[this.cols[i]] = this.signupForm.value[this.cols[i]];
       }
 
-      return rowDetails;
+      return this.rowDetails;
 
 
 
   }
+
+  onClearForm(){
+   this.signupForm.reset();  }
 
 }
