@@ -22,6 +22,8 @@
 							<th scope="col">#</th>
 							<th *ngFor="let item of cols;" scope="col">{{item}}</th>
 				      <th></th>
+              				      <!-- <th></th> -->
+
 						</tr>
 					</thead>
 					<tbody>
@@ -29,7 +31,7 @@
               <th scope="row"></th>
 
 						<td *ngFor="let col of cols; let j = index">{{row[col]}}</td>
-	           <td class="pt-3-half">
+	           <!-- <td class="pt-3-half">
                    <span>
                     <a href="javascript:void(0)" class="btn btn-default">
                             <div class="edit" (click)="editRow(i)">
@@ -42,6 +44,25 @@
                     </div>
                     </a>
                 </span>    
+            </td> -->
+
+            <td>
+<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+  <div class="btn-group mr-2" role="group" aria-label="First group">
+   <a href="javascript:void(0)" class="btn btn-default">
+                            <div class="edit" (click)="editRow(i)">
+                            </div>
+                        </a>
+   
+  </div>
+  <div class="btn-group mr-2" role="group" aria-label="Second group">
+    <a href="javascript:void(0)" class="btn btn-default">
+                        <div class="delete" (click)="onDeleteRow(i)">
+                    </div>
+                    </a>
+  </div>
+  
+</div>
             </td>
 
 						</tr>
