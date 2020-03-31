@@ -21,14 +21,14 @@ export class TableComponent implements OnInit {
      this.sub = this.tableService.rowAdded.subscribe(
        (rowDetailsArr) => {
         this.rowDetailsArr = rowDetailsArr;
-        console.log("table get new row ");
-        console.log(this.rowDetailsArr);
+        // console.log("table get new row ");
+        // console.log(this.rowDetailsArr);
 
       }
      )
 
      this.cols = this.tableService.getCols();
-     console.log(this.cols);
+    //  console.log(this.cols);
   }
 
   async onAdd() {
@@ -59,6 +59,13 @@ export class TableComponent implements OnInit {
         }
       }, 1000)
     })();
+  }
+
+    onDeleteRow(rowIndex) {
+      this.tableService.deleteRow(rowIndex)
+      // let rows = this.addForm.get('rows') as FormArray;
+      // rows.removeAt(rowIndex)
+      // console.log(this.extraColumnsFormGroup.value)
   }
 
 }

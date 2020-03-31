@@ -24,7 +24,7 @@ export class TableService {
 
       // console.log("current rows arr : " );
 
-      console.log(this.rowsDetailsArr);
+      // console.log(this.rowsDetailsArr);
 
       // this.rowsDetailsObj = row;
       // console.log("current row : " + row);
@@ -43,6 +43,12 @@ export class TableService {
 
   onSaveData(){
         this.saveData.next("save data in service");
+  }
+
+  deleteRow(indexRow){
+   this.rowsDetailsArr.splice(indexRow,1);
+  
+
   }
 
 }
