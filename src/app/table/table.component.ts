@@ -63,9 +63,12 @@ export class TableComponent implements OnInit {
 
     onDeleteRow(rowIndex) {
       this.tableService.deleteRow(rowIndex)
-      // let rows = this.addForm.get('rows') as FormArray;
-      // rows.removeAt(rowIndex)
-      // console.log(this.extraColumnsFormGroup.value)
-  }
 
+  }
+    editRow(rowIndex) {
+      
+      this.openModal();
+      // this.tableService.editRow(rowIndex)
+
+  }
 }
