@@ -38,7 +38,7 @@ export class TableService {
 
   deleteRow(indexRow){
    this.rowsDetailsArr.splice(indexRow,1);
-  
+  this.rowChanged.next(this.rowsDetailsArr.slice())
 
   }
 
