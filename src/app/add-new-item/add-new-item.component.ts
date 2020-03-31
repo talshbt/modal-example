@@ -27,7 +27,6 @@ export class AddNewItemComponent implements OnInit {
     private getFormDetails() {
       this.cols.forEach(function (data) {
         console.log(data);
-      
     }); 
     
    
@@ -45,7 +44,6 @@ export class AddNewItemComponent implements OnInit {
       }
 
       rowDetailsObj = this.createObj();
-      console.log(rowDetailsObj);
 
       this.tableService.addRow(rowDetailsObj);
       this.signupForm.reset();
@@ -55,17 +53,11 @@ export class AddNewItemComponent implements OnInit {
   }
 
 
-  createObj(){
-    console.log("createObj")
-    
+  createObj(){    
       for(var i = 0 ; i < this.cols.length; ++i){
         this.rowDetails[this.cols[i]] = this.signupForm.value[this.cols[i]];
       }
-
       return this.rowDetails;
-
-
-
   }
 
   onClearForm(){
