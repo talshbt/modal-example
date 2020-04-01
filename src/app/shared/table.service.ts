@@ -8,7 +8,8 @@ export class TableService {
   rowChanged = new Subject<any>();
   saveData = new Subject<any>();
   rowEdit = new Subject<any>();
-  rowEdited = new Subject<object>();
+  rowEditChanged = new Subject<object>();
+
 
   private cols = ["id","name","email"];
   private rowsDetailsArr = [{id:"id", name:"name", email:"mail"}];
@@ -50,6 +51,7 @@ export class TableService {
   }
 
   editRow(indexRow){
+    
     console.log("edit row service")
     this.rowEdit.next(this.rowsDetailsArr[indexRow]);
   //  this.rowsDetailsArr.splice(indexRow,1);
