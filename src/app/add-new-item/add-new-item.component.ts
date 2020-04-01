@@ -9,7 +9,7 @@ import {TableService} from '../shared/table.service'
   styleUrls: ['./add-new-item.component.scss']
 })
 export class AddNewItemComponent implements OnInit {
-    textValue = "blabla";
+    textValue = ["blabla", "xfdf", "asfa"];
    @ViewChild("f", { static: false }) signupForm: NgForm;
     cols = [];
     canClear = false;
