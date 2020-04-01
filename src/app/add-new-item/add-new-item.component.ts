@@ -29,8 +29,8 @@ export class AddNewItemComponent implements OnInit {
      this.sub = this.tableService.rowEdit.subscribe(
        (rowToEdit) => {
          this.onEditMode = true;
-         this.rowDetails = rowToEdit;
-         console.log(this.rowDetails["id"])
+         this.rowToEdit = rowToEdit;
+         console.log(this.rowToEdit)
         console.log("------need to edit----------")
         console.log(rowToEdit)
         
@@ -41,6 +41,10 @@ export class AddNewItemComponent implements OnInit {
       }
      )
      
+  }
+
+  setTextValu(){
+    
   }
 
     private getFormDetails() {
