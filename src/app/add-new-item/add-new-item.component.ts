@@ -9,12 +9,13 @@ import {TableService} from '../shared/table.service'
   styleUrls: ['./add-new-item.component.scss']
 })
 export class AddNewItemComponent implements OnInit {
-
+    textValue = "blabla";
    @ViewChild("f", { static: false }) signupForm: NgForm;
     cols = [];
     canClear = false;
     rowDetails = { };
     sub: Subscription;
+    onEditMode = false;
 
   // private fieldArray = ["id","name","email"];
 
@@ -23,11 +24,14 @@ export class AddNewItemComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.signupForm.value.id = "ckvdsdf";
+    console.log(this.signupForm.value.id)
      this.sub = this.tableService.rowEdit.subscribe(
        (row) => {
-         console.log("------need to edit----------")
+         this.onEditMode = true;
+        console.log("------need to edit----------")
         console.log(row)
+        
         // this.rowDetailsArr = rowDetailsArr;
         // console.log("table get new row ");
         // console.log(this.rowDetailsArr);

@@ -13,7 +13,11 @@ export class NgModalComponent implements OnInit {
 
 constructor(
     private _NgbActiveModal: NgbActiveModal, private tableService: TableService
-  ) { }
+  ) {
+
+
+    
+   }
 
   get activeModal() {
     return this._NgbActiveModal;
