@@ -14,7 +14,7 @@ export class AddNewItemComponent implements OnInit {
     cols = [];
     canClear = false;
     rowDetails = { };
-      sub: Subscription;
+    sub: Subscription;
 
   // private fieldArray = ["id","name","email"];
 
@@ -23,15 +23,19 @@ export class AddNewItemComponent implements OnInit {
   }
 
   ngOnInit() {
-     this.cols = this.tableService.getCols();
-       this.sub = this.tableService.rowEdit.subscribe(
-       (rowInd) => {
+
+     this.sub = this.tableService.rowEdit.subscribe(
+       (row) => {
+         console.log("------need to edit----------")
+        console.log(row)
         // this.rowDetailsArr = rowDetailsArr;
         // console.log("table get new row ");
         // console.log(this.rowDetailsArr);
 
       }
      )
+     this.cols = this.tableService.getCols();
+     
   }
 
     private getFormDetails() {
@@ -72,5 +76,7 @@ export class AddNewItemComponent implements OnInit {
 
   onClearForm(){
    this.signupForm.reset();  }
+
+   
 
 }

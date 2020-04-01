@@ -28,6 +28,7 @@ export class TableComponent implements OnInit {
      )
 
      this.cols = this.tableService.getCols();
+     this.rowDetailsArr = this.tableService.getTempArr();
     //  console.log(this.cols);
   }
 
@@ -66,9 +67,9 @@ export class TableComponent implements OnInit {
 
   }
     editRow(rowIndex) {
-      
-      this.openModal();
-      // this.tableService.editRow(rowIndex)
+      console.log("onEditRow")
+      // this.openModal();
+     this.tableService.editRow(rowIndex)
 
   }
 }
