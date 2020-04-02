@@ -9,10 +9,13 @@ export class TableService {
   rowToEdit = [];
   onEditMode = false;
   rowIndexToEdit = null;
+  componentToOpen =  new Subject<any>();
+
   private cols = ["id", "name", "email"];
   private rowsDetailsArr = [];
-
   private rowsDetailsObj = {};
+
+
 
   constructor() {}
 
@@ -65,4 +68,6 @@ export class TableService {
   isEditMode() {
     return this.onEditMode;
   }
+
+  
 }
