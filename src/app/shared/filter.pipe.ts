@@ -10,8 +10,8 @@ export class FilterPipe implements PipeTransform{
        if (!searchText) return items;
 
 
-       return items.filter(function (person) {
-        return Object.values(person).includes(searchText);
+       return items.filter(function (item) {
+        return Object.values(item).includes(searchText);
 
      
       });
