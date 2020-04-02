@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import {TableService} from '../shared/table.service'
 import { Subscription } from "rxjs";
+import { PlaceholderDirective } from "../shared/placeholder.directive";
 
 @Component({
   selector: 'app-ng-modal',
@@ -11,7 +12,8 @@ import { Subscription } from "rxjs";
 export class NgModalComponent implements OnInit {
   sub: Subscription;
   componentName = null;
-
+    @ViewChild(PlaceholderDirective, { static: false })
+  dialogHost: PlaceholderDirective;
 constructor(
     private _NgbActiveModal: NgbActiveModal, private tableService: TableService
   ) {
