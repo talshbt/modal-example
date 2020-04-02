@@ -1,9 +1,12 @@
 
 
 
+$color-remove:rgb(244, 67, 54); 
+$color-edit:rgb(255, 193, 7); 
+
 .delete 
 {
-  background-color: rgb(244, 67, 54);
+  background-color: $color-remove;
      -webkit-mask-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAiElEQVRIie2ROwqAMBAFR8U7eEYR7CwED+AFvJxgZW8tCLGxWEJijFG0yIOFJZ+ZfMCdCpgApdUMNEBygWFNaQDrVYcIxgPSArkYz4DumBvPAPJ6KuQkNnb6MPQfcX2qqwoJe/2JPhcknr23IDhREAVREAU3BavolWev7zcKen3RxWzAACxycAcbwC9ITbeDjwAAAABJRU5ErkJggg==" );
     //  mask-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABmJLR0QA/wD/AP+gvaeTAAABzUlEQVRIia3VO4tTQRQA4M9FooWSXnwsFmIj2LmiqFhZirq4a0BYlUUQ8f1YcRX8GVZrqaCVCBZWIij+BR+NKKKFLjZudrMW91wyuSTBSXIgMHOSe77MmUmG0cUOPMIT7B9h3Y7YhZ9YjVcTJ0aN1LAZHxJo5NgUPmJ7D2wZp4ZFNuBLFPyMcWwJuLqygffsMOrYiW8VbGsX7PEgyFH8xRuM9cE+JdDDXOQYlnT2vtYD2xbjHzH/7zjeBbmP14r96oaNY3cOMqnY1GVMJ0jZmheRq2L1HORkgkxF7l6CLGqfqrKNX3E5B5kOpJkg8xVkX+Rv4W2sYmMO0ohVNGNVcLcPUuZP5yBT2u1qRO5mUuwPDkb+WpK/MyxyowdyNcnP5SAzWNF5hKvIgS7I7RxkMpBmjClaURb7jb2Rvx65Fi7lIPAqHp6J+VwPpNyTFi7mInXFr34R6zCbIL8wEZ8r29XChVyEolWreJbkDvVBzg+CwEIUOZfk1mNPjK8kyOygyBi+R5FNlfdq2qdupfJFsmNC+yY8EthZPFXsWbmSM8Mg8EDntdtK5kuK09jo+XRGvEsKryrauKA4IFl/8/1ireJKXoOXeI73ilWNNP4B0Rm6kC6KEsYAAAAASUVORK5CYII=");
 
@@ -13,13 +16,15 @@
 }
 
 .delete:hover{
+    
     background:#d0473d;
+     background-color:darken($color-remove, 10%);
 }
 
 
 .edit 
 {
-  background-color: rgb(255, 193, 7);
+  background-color: $color-edit;
     -webkit-mask-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAeElEQVRIie3PwQmAMBBE0Y93a9IerEAsxD1aQ2rTGixBD7IQQ6KHrJ52YCAQ8oaA58oEbMAOBKC1xAU4kga9bCyXogwWSBedhfsP1lpcQSmMjBa4Nh2R9EENrl1q0Ddc23+Jz447/g/O1/jTgAleGjDDcwOmuCebE9TrdB+QCOrjAAAAAElFTkSuQmCC");
     height:25px;
     width:26px;
@@ -27,7 +32,8 @@
 }
 
 .edit:hover{
-    background:#e4ad06;
+    background-color:darken($color-edit, 10%);
+
 }
 
 a.btn.btn-default{
@@ -112,4 +118,17 @@ background-color:#4aaf61;
 // background-color: red;
 width: 125%;
 //  padding-right:26px;
+}
+
+.btn btn-default{
+    padding:0;
+    display: inline-block;
+    margin:0;
+
+
+}
+
+.inner
+{
+    display: inline-block;
 }
