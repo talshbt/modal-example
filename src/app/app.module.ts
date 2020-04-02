@@ -12,6 +12,7 @@ import { NgModalComponent } from './ng-modal/ng-modal.component';
 import { AddNewItemComponent } from './add-new-item/add-new-item.component';
 import { TableService } from './shared/table.service';
 import { TableComponent } from './table/table.component';
+import { PlaceholderDirective } from './shared/placeholder.directive';
 
 @NgModule({
  imports: [
@@ -25,7 +26,8 @@ import { TableComponent } from './table/table.component';
     NgModalComponent,
     AddNewItemComponent,
     TableComponent,
-    FilterPipe
+    FilterPipe,
+    PlaceholderDirective
   ],
   bootstrap: [AppComponent],
   entryComponents: [NgModalComponent],
