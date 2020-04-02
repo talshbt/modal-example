@@ -43,7 +43,13 @@ export class TableComponent implements OnInit, OnDestroy {
 
   openModal() {
     this._NgbModal.open(NgModalComponent, {
-      windowClass: "modal-job-scrollable"
+      windowClass: "modal-job-scrollable",
+      size: 'sm', 
+      backdrop: 'static',
+      centered:true
+      // windowClass: 'modal-xl'
+      
+      
     });
 
     // upwrap the "app-ng-modal" data to enable the "modal-dialog-scrollable"
