@@ -18,13 +18,15 @@ import { TableComponent } from './table/table.component';
  imports: [
     BrowserModule,
     FormsModule,
-    NgbModalModule
+    NgbModalModule,
+    
   ],
   declarations: [
     AppComponent,
     NgModalComponent,
     AddNewItemComponent,
-    TableComponent
+    TableComponent,
+    FilterPipe
   ],
   bootstrap: [AppComponent],
   entryComponents: [NgModalComponent],

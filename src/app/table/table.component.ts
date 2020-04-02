@@ -20,6 +20,7 @@ export class TableComponent implements OnInit, OnDestroy {
   sub: Subscription;
   cols = [];
   rowDetailsArr = [];
+  searchText: string;
 
   constructor(
     private _NgbModal: NgbModal,

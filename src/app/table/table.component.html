@@ -24,7 +24,7 @@
 					</thead>
 
 					<tbody>
-              <tr *ngFor="let row of rowDetailsArr; let i = index" style="cursor: pointer;">
+              <tr *ngFor="let row of rowDetailsArr | filter: searchText; let i = index" style="cursor: pointer;">
               <th scope="row"></th>
 						  <td *ngFor="let col of cols; let j = index">{{row[col]}}</td>
             <td>
