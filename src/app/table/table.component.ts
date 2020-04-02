@@ -21,8 +21,6 @@ export class TableComponent implements OnInit {
      this.sub = this.tableService.rowChanged.subscribe(
        (rowDetailsArr) => {
         this.rowDetailsArr = rowDetailsArr;
-        // console.log("table get new row ");
-        // console.log(this.rowDetailsArr);
 
       }
      )
@@ -32,10 +30,6 @@ export class TableComponent implements OnInit {
     //  console.log(this.cols);
   }
 
-  async onAdd() {
-    // this.tableService.getModalEvent();
-    // console.log(await this.modalService.open(AddNewItemComponent));
-  }
 
    openModal() {
     this._NgbModal.open(NgModalComponent, {

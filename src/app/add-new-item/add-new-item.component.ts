@@ -30,21 +30,10 @@ export class AddNewItemComponent implements OnInit {
      this.sub = this.tableService.rowEdit.subscribe(
        (rowToEdit) => {
          this.textValue = rowToEdit;
-    
-        console.log("------need to edit----------")
-        console.log(rowToEdit)
-
-
       }
      )
-    console.log("------after----------")
     this.textValue = this.tableService.getRowToEdit();
-     console.log(this.textValue);
      
-  }
-
-  setTextValu(){
-    
   }
 
     private getFormDetails() {
