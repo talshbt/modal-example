@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, OnDestroy } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { Subscription } from "rxjs";
 import {TableService} from '../shared/table.service'
@@ -8,48 +8,31 @@ import {TableService} from '../shared/table.service'
   templateUrl: './add-new-item.component.html',
   styleUrls: ['./add-new-item.component.scss']
 })
-export class AddNewItemComponent implements OnInit, OnDestroy {
-  initForm = "";
+export class AddNewItemComponent implements OnInit{
+  
     rowToEdit = [];
-    InitrowToEdit = [];
    @ViewChild("f") signupForm: NgForm;
     cols = [];
-    canClear = false;
     rowDetails = { };
-    sub: Subscription;
     onEditMode = false;
-    // rowToEdit = {};
 
 
   constructor( private tableService: TableService) { 
     
   }
 
-
   ngOnInit() {
+
     this.cols = this.tableService.getCols();
     this.onEditMode = this.tableService.isEditMode();
-    console.log("isEditMode ? "  + this.tableService.isEditMode())
-    // if(this.tableService.isEditMode()){
-    //       this.rowToEdit = this.tableService.getRowToEdit();
-
-    // }
-
     this.rowToEdit = this.tableService.isEditMode()? this.tableService.getRowToEdit(): [];
-     
   }
 
-    private getFormDetails() {
-      this.cols.forEach(function (data) {
-        console.log(data);
-    }); 
-    
-   
-
-  }
 
 
   private createObjToSend(){
+
+    
     let rowDetails = [];
     let rowDetailsObj = {};
       for(var i = 0 ; i < this.cols.length; ++i){
@@ -57,8 +40,8 @@ export class AddNewItemComponent implements OnInit, OnDestroy {
 
       }
 
-      rowDetailsObj = this.createObj();
-      return rowDetailsObj;
+  rowDetailsObj = this.createObj();
+  return rowDetailsObj;
   }
 
   onSubmit() {
@@ -76,6 +59,7 @@ export class AddNewItemComponent implements OnInit, OnDestroy {
       for(var i = 0 ; i < this.cols.length; ++i){
         this.rowDetails[this.cols[i]] = this.signupForm.value[this.cols[i]];
       }
+
       return this.rowDetails;
   }
 
@@ -83,9 +67,7 @@ export class AddNewItemComponent implements OnInit, OnDestroy {
    this.signupForm.reset();  }
 
 
-   ngOnDestroy(){
-    //  this.sub.unsubscribe();
-   }
+
 
  
 
