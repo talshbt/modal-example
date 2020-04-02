@@ -7,7 +7,6 @@ import { FilterPipe } from './shared/filter.pipe';
  
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
-import { ModalComponent } from './modal/modal.component';
 
 import { NgModalComponent } from './ng-modal/ng-modal.component';
 import { AddNewItemComponent } from './add-new-item/add-new-item.component';
