@@ -9,6 +9,7 @@ export class TableService {
   saveData = new Subject<any>();
   rowEdit = new Subject<any>();
   rowEditChanged = new Subject<object>();
+  resetEvent = new Subject<any>();
   rowToEdit = [];
   onEditMode = false;
   rowIndexToEdit = null;
@@ -27,9 +28,9 @@ export class TableService {
 
   addRow(row){
       // console.log(row);
-      console.log("?????????????????" + this.onEditMode)
       if (this.onEditMode){
           this.rowsDetailsArr[this.rowIndexToEdit] = row;
+          this.resetEvent.next();
       }else{
         this.rowsDetailsArr.push(row);
       }
@@ -79,29 +80,20 @@ export class TableService {
   }
 
   getRowToEdit(){
-    // console.log("getRowToEdit")
-    // console.log(this.rowToEdit)
-     return this.rowToEdit;
+
+    if(this.onEditMode){
+       return this.rowToEdit;
+    }else{
+      return [];
+    }
+    
    
   }
 
-  getUpdatedRow(newRow ,  index){
-      // this.onEditMode = true;
-    // console.log("before edit")
 
-    // console.log(this.rowsDetailsArr[index])
-
-    // console.log("after edit")
-    // console.log(this.rowsDetailsArr[index])
-
-    this.rowsDetailsArr[index] = newRow;
-    this.rowChanged.next(this.rowsDetailsArr.slice());
-
-  }
 
   isEditMode(){
-    console.log("----------------" + this.isEditMode)
-    return this.isEditMode;
+    return this.onEditMode;
 
   }
 

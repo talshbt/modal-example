@@ -1,4 +1,4 @@
-import { Component, ViewChild, ViewContainerRef, OnInit } from '@angular/core';
+import { Component, ViewChild, ViewContainerRef, OnInit, OnDestroy } from '@angular/core';
 import {TableService} from '../shared/table.service'
 import { AddNewItemComponent } from '../add-new-item/add-new-item.component';
 import { Subscription } from "rxjs";
@@ -10,7 +10,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })
-export class TableComponent implements OnInit {
+export class TableComponent implements OnInit, OnDestroy {
   sub: Subscription;
   cols = [];
   rowDetailsArr = [];
