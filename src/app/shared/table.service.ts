@@ -8,13 +8,11 @@ export class TableService {
   rowChanged = new Subject<any>();
   saveData = new Subject<any>();
   rowEdit = new Subject<any>();
-  rowEditChanged = new Subject<object>();
-  resetEvent = new Subject<any>();
   rowToEdit = [];
   onEditMode = false;
   rowIndexToEdit = null;
   private cols = ["id","name","email"];
-  private rowsDetailsArr = [{id:"id", name:"name", email:"mail"}];
+  private rowsDetailsArr = [];
 
   
 
@@ -59,21 +57,15 @@ export class TableService {
   editRow(indexRow){
     this.onEditMode = true;
     this.rowIndexToEdit = indexRow;
-    console.log("edit row service")
     var rowDetails =  []
      for(var i = 0 ; i < this.cols.length; ++i){
         this.rowToEdit.push(this.rowsDetailsArr[indexRow][this.cols[i]]);
      }
-     rowDetails.push(this.rowToEdit, indexRow);
-     this.rowEdit.next(rowDetails)
 
 
 
   }
 
-  getTempArr(){
-    return this.rowsDetailsArr.slice();
-  }
 
   getRowToEdit(){
 
