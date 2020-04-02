@@ -9,8 +9,9 @@ import {TableService} from '../shared/table.service'
   styleUrls: ['./add-new-item.component.scss']
 })
 export class AddNewItemComponent implements OnInit, OnDestroy {
+  initForm = "";
     rowToEdit = [];
-    rowToEdit2 = [];
+    InitrowToEdit = [];
    @ViewChild("f") signupForm: NgForm;
     cols = [];
     canClear = false;
@@ -48,14 +49,14 @@ export class AddNewItemComponent implements OnInit, OnDestroy {
 
   private createObjToSend(){
     let rowDetails = [];
-        let rowDetailsObj = {};
-          for(var i = 0 ; i < this.cols.length; ++i){
-            rowDetails.push(this.signupForm.value[this.cols[i]]);
+    let rowDetailsObj = {};
+      for(var i = 0 ; i < this.cols.length; ++i){
+        rowDetails.push(this.signupForm.value[this.cols[i]]);
 
-          }
+      }
 
-          rowDetailsObj = this.createObj();
-          return rowDetailsObj;
+      rowDetailsObj = this.createObj();
+      return rowDetailsObj;
   }
 
   onSubmit() {
