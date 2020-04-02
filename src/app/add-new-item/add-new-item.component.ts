@@ -30,10 +30,12 @@ export class AddNewItemComponent implements OnInit, OnDestroy {
     this.cols = this.tableService.getCols();
     this.onEditMode = this.tableService.isEditMode();
     console.log("isEditMode ? "  + this.tableService.isEditMode())
-    if(this.tableService.isEditMode()){
-          this.rowToEdit = this.tableService.getRowToEdit();
+    // if(this.tableService.isEditMode()){
+    //       this.rowToEdit = this.tableService.getRowToEdit();
 
-    }
+    // }
+
+    this.rowToEdit = this.tableService.isEditMode()? this.tableService.getRowToEdit(): [];
      
   }
 
