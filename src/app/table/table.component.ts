@@ -71,7 +71,7 @@ export class TableComponent implements OnInit {
       console.log("onEditRow")
       
      this.tableService.editRow(rowIndex)
-     this.openModal();
+    //  this.openModal();
 
   }
 }

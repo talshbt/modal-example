@@ -10,6 +10,7 @@ import {TableService} from '../shared/table.service'
 })
 export class AddNewItemComponent implements OnInit {
     textValue = ["blabla", "xfdf", "asfa"];
+    textValue2 = [];
    @ViewChild("f", { static: false }) signupForm: NgForm;
     cols = [];
     canClear = false;
@@ -28,18 +29,17 @@ export class AddNewItemComponent implements OnInit {
     this.cols = this.tableService.getCols();
      this.sub = this.tableService.rowEdit.subscribe(
        (rowToEdit) => {
-         this.onEditMode = true;
-         this.rowToEdit = rowToEdit;
-         console.log(this.rowToEdit)
+         this.textValue = rowToEdit;
+    
         console.log("------need to edit----------")
         console.log(rowToEdit)
-        
-        // this.rowDetailsArr = rowDetailsArr;
-        // console.log("table get new row ");
-        // console.log(this.rowDetailsArr);
+
 
       }
      )
+    console.log("------after----------")
+    this.textValue = this.tableService.getRowToEdit();
+     console.log(this.textValue);
      
   }
 
@@ -85,6 +85,8 @@ export class AddNewItemComponent implements OnInit {
 
   onClearForm(){
    this.signupForm.reset();  }
+
+ 
 
    
 
