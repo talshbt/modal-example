@@ -74,7 +74,7 @@ export class AddNewItemComponent implements OnInit {
     this.tableService.onSaveData();
 
     let rowDetailsObj = this.createObjToSend();
-    console.log("on edit mode ????" + this.onEditMode)
+    // console.log( this.tableService.isEditMode())
   
       if(this.onEditMode){
           this.tableService.getUpdatedRow(rowDetailsObj, this.rowIndex);

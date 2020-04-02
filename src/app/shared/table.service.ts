@@ -10,7 +10,8 @@ export class TableService {
   rowEdit = new Subject<any>();
   rowEditChanged = new Subject<object>();
   rowToEdit = [];
-
+  onEditMode = false;
+  rowIndexToEdit = null;
   private cols = ["id","name","email"];
   private rowsDetailsArr = [{id:"id", name:"name", email:"mail"}];
 
@@ -26,8 +27,13 @@ export class TableService {
 
   addRow(row){
       // console.log(row);
-
-      this.rowsDetailsArr.push(row);
+      console.log("?????????????????" + this.onEditMode)
+      if (this.onEditMode){
+          this.rowsDetailsArr[this.rowIndexToEdit] = row;
+      }else{
+        this.rowsDetailsArr.push(row);
+      }
+      
       console.log(this.rowsDetailsArr)
       this.rowChanged.next(this.rowsDetailsArr.slice());
 
@@ -41,6 +47,7 @@ export class TableService {
 
 
   onSaveData(){
+    console.log(this.onEditMode)
     this.saveData.next("save data in service");
   }
 
@@ -51,7 +58,8 @@ export class TableService {
   }
 
   editRow(indexRow){
-    
+    this.onEditMode = true;
+    this.rowIndexToEdit = indexRow;
     console.log("edit row service")
     var rowDetails =  []
      for(var i = 0 ; i < this.cols.length; ++i){
@@ -71,22 +79,29 @@ export class TableService {
   }
 
   getRowToEdit(){
-    console.log("getRowToEdit")
-    console.log(this.rowToEdit)
+    // console.log("getRowToEdit")
+    // console.log(this.rowToEdit)
      return this.rowToEdit;
    
   }
 
   getUpdatedRow(newRow ,  index){
-    console.log("before edit")
+      // this.onEditMode = true;
+    // console.log("before edit")
 
-    console.log(this.rowsDetailsArr[index])
+    // console.log(this.rowsDetailsArr[index])
 
-    console.log("after edit")
-    console.log(this.rowsDetailsArr[index])
+    // console.log("after edit")
+    // console.log(this.rowsDetailsArr[index])
 
     this.rowsDetailsArr[index] = newRow;
     this.rowChanged.next(this.rowsDetailsArr.slice());
+
+  }
+
+  isEditMode(){
+    console.log("----------------" + this.isEditMode)
+    return this.isEditMode;
 
   }
 
