@@ -9,16 +9,15 @@ import {TableService} from '../shared/table.service'
   styleUrls: ['./add-new-item.component.scss']
 })
 export class AddNewItemComponent implements OnInit, OnDestroy {
-    textValue = [];
-    textValue2 = [];
-   @ViewChild("f", { static: false }) signupForm: NgForm;
+    rowToEdit = [];
+    rowToEdit2 = [];
+   @ViewChild("f") signupForm: NgForm;
     cols = [];
     canClear = false;
     rowDetails = { };
     sub: Subscription;
     onEditMode = false;
-    rowToEdit = {};
-    rowIndex;
+    // rowToEdit = {};
 
 
   constructor( private tableService: TableService) { 
@@ -31,7 +30,7 @@ export class AddNewItemComponent implements OnInit, OnDestroy {
     this.onEditMode = this.tableService.isEditMode();
     console.log("isEditMode ? "  + this.tableService.isEditMode())
     if(this.tableService.isEditMode()){
-          this.textValue = this.tableService.getRowToEdit();
+          this.rowToEdit = this.tableService.getRowToEdit();
 
     }
      
@@ -61,18 +60,12 @@ export class AddNewItemComponent implements OnInit, OnDestroy {
 
   onSubmit() {
      
-    this.tableService.onSaveData();
-// this.signupForm.reset();
-    let rowDetailsObj = this.createObjToSend();
-    // console.log( this.tableService.isEditMode())
+  this.tableService.onSaveData();
+  let rowDetailsObj = this.createObjToSend();
   
-  this.textValue = [];
+  this.rowToEdit = [];
       this.tableService.addRow(rowDetailsObj);
       this.signupForm.reset();
-
-    
-
-
   }
 
 
@@ -88,7 +81,7 @@ export class AddNewItemComponent implements OnInit, OnDestroy {
 
 
    ngOnDestroy(){
-     this.sub.unsubscribe();
+    //  this.sub.unsubscribe();
    }
 
  

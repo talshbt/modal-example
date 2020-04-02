@@ -27,16 +27,13 @@ export class TableService {
   }
 
   addRow(row){
-      // console.log(row);
       if (this.onEditMode){
           this.rowsDetailsArr[this.rowIndexToEdit] = row;
-          // this.resetEvent.next();
           this.onEditMode = false;
       }else{
         this.rowsDetailsArr.push(row);
       }
       
-      // console.log(this.rowsDetailsArr)
       this.rowChanged.next(this.rowsDetailsArr.slice());
 
 
@@ -70,9 +67,7 @@ export class TableService {
      rowDetails.push(this.rowToEdit, indexRow);
      this.rowEdit.next(rowDetails)
 
-    // this.rowEdit.next(this.rowsDetailsArr[indexRow]);
-  //  this.rowsDetailsArr.splice(indexRow,1);
-  //  this.rowChanged.next(this.rowsDetailsArr.slice())
+
 
   }
 
