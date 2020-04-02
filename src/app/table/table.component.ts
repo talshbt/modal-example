@@ -30,6 +30,10 @@ export class TableComponent implements OnInit, OnDestroy {
     //  console.log(this.cols);
   }
 
+  ngOnDestroy(){
+    this.sub.unsubscribe();
+  }
+
 
    openModal() {
     this._NgbModal.open(NgModalComponent, {

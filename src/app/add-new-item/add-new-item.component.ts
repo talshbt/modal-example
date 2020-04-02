@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit, ViewChild, OnDestroy } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { Subscription } from "rxjs";
 import {TableService} from '../shared/table.service'
@@ -8,7 +8,7 @@ import {TableService} from '../shared/table.service'
   templateUrl: './add-new-item.component.html',
   styleUrls: ['./add-new-item.component.scss']
 })
-export class AddNewItemComponent implements OnInit {
+export class AddNewItemComponent implements OnInit, OnDestroy {
     textValue = [];
     textValue2 = [];
    @ViewChild("f", { static: false }) signupForm: NgForm;
@@ -20,19 +20,16 @@ export class AddNewItemComponent implements OnInit {
     rowToEdit = {};
     rowIndex;
 
-  // private fieldArray = ["id","name","email"];
 
   constructor( private tableService: TableService) { 
     
   }
 
-  // getForm(){
-  //   return 
-  // }
 
   ngOnInit() {
     this.cols = this.tableService.getCols();
     this.onEditMode = this.tableService.isEditMode();
+    console.log("isEditMode ? "  + this.tableService.isEditMode())
     if(this.tableService.isEditMode()){
           this.textValue = this.tableService.getRowToEdit();
 
@@ -63,17 +60,13 @@ export class AddNewItemComponent implements OnInit {
   }
 
   onSubmit() {
-    
+     
     this.tableService.onSaveData();
-
+// this.signupForm.reset();
     let rowDetailsObj = this.createObjToSend();
-    console.log( this.tableService.isEditMode())
+    // console.log( this.tableService.isEditMode())
   
-      // if(this.onEditMode){
-      //     this.tableService.getUpdatedRow(rowDetailsObj, this.rowIndex);
-      // }else{
-      //     this.tableService.addRow(rowDetailsObj);
-      // }
+  this.textValue = [];
       this.tableService.addRow(rowDetailsObj);
       this.signupForm.reset();
 
@@ -92,6 +85,11 @@ export class AddNewItemComponent implements OnInit {
 
   onClearForm(){
    this.signupForm.reset();  }
+
+
+   ngOnDestroy(){
+     this.sub.unsubscribe();
+   }
 
  
 

@@ -30,12 +30,13 @@ export class TableService {
       // console.log(row);
       if (this.onEditMode){
           this.rowsDetailsArr[this.rowIndexToEdit] = row;
-          this.resetEvent.next();
+          // this.resetEvent.next();
+          this.onEditMode = false;
       }else{
         this.rowsDetailsArr.push(row);
       }
       
-      console.log(this.rowsDetailsArr)
+      // console.log(this.rowsDetailsArr)
       this.rowChanged.next(this.rowsDetailsArr.slice());
 
 
