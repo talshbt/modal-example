@@ -18,6 +18,7 @@ export class AddNewItemComponent implements OnInit {
     sub: Subscription;
     onEditMode = false;
     rowToEdit = {};
+    rowIndex;
 
   // private fieldArray = ["id","name","email"];
 
@@ -28,10 +29,21 @@ export class AddNewItemComponent implements OnInit {
   ngOnInit() {
     this.cols = this.tableService.getCols();
      this.sub = this.tableService.rowEdit.subscribe(
-       (rowToEdit) => {
-         this.textValue = rowToEdit;
+       (rowDetails) => {
+         this.onEditMode = true;
+         this.textValue = rowDetails[0];
+         this.rowIndex = rowDetails[1];
+         console.log("index  = " + rowDetails[1])
+          console.log("arr  = " + rowDetails[0])
+
+           let rowDetailsObj = this.createObjToSend();
+              this.tableService.getUpdatedRow(rowDetailsObj, this.rowIndex);
+              this.signupForm.reset();
+          // this.tableService.getUpdatedRow(,rowDetails[1])
+
       }
      )
+    var rowDetailsFromService = this.tableService.getRowToEdit();
     this.textValue = this.tableService.getRowToEdit();
      
   }
@@ -45,20 +57,33 @@ export class AddNewItemComponent implements OnInit {
 
   }
 
+
+  private createObjToSend(){
+    let rowDetails = [];
+        let rowDetailsObj = {};
+          for(var i = 0 ; i < this.cols.length; ++i){
+            rowDetails.push(this.signupForm.value[this.cols[i]]);
+
+          }
+
+          rowDetailsObj = this.createObj();
+          return rowDetailsObj;
+  }
+
   onSubmit() {
     this.tableService.onSaveData();
 
-    let rowDetails = [];
-    let rowDetailsObj = {};
-      for(var i = 0 ; i < this.cols.length; ++i){
-        rowDetails.push(this.signupForm.value[this.cols[i]]);
-
+    let rowDetailsObj = this.createObjToSend();
+    console.log("on edit mode ????" + this.onEditMode)
+  
+      if(this.onEditMode){
+          this.tableService.getUpdatedRow(rowDetailsObj, this.rowIndex);
+      }else{
+          this.tableService.addRow(rowDetailsObj);
       }
 
-      rowDetailsObj = this.createObj();
-
-      this.tableService.addRow(rowDetailsObj);
       this.signupForm.reset();
+
     
 
 
