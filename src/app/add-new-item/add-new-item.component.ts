@@ -46,7 +46,7 @@ export class AddNewItemComponent implements OnInit{
 
   onSubmit() {
      
-  this.tableService.onSaveData();
+  this.tableService.onSaveData(null);
   let rowDetailsObj = this.createObjToSend();
   
   this.rowToEdit = [];

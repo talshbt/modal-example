@@ -10,7 +10,7 @@ export class TableService {
   onEditMode = false;
   rowIndexToEdit = null;
   componentToOpen =  new Subject<any>();
-
+  componentName = null;
   private cols = ["id", "name", "email"];
   private rowsDetailsArr = [];
   private rowsDetailsObj = {};
@@ -39,8 +39,9 @@ export class TableService {
   }
 
   onSaveData() {
-    console.log(this.onEditMode);
-    this.saveData.next("save data in service");
+    this.componentName = this.getComponentName();
+    console.log(name);
+    this.saveData.next(name);
   }
 
   deleteRow(indexRow) {
@@ -67,6 +68,14 @@ export class TableService {
 
   isEditMode() {
     return this.onEditMode;
+  }
+
+  setComponentName(name){
+    this.componentName = name;
+  }
+
+  getComponentName(){
+    return this.componentName;
   }
 
   

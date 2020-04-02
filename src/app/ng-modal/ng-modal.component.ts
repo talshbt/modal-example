@@ -10,6 +10,7 @@ import { Subscription } from "rxjs";
 })
 export class NgModalComponent implements OnInit {
   sub: Subscription;
+  componentName = null;
 
 constructor(
     private _NgbActiveModal: NgbActiveModal, private tableService: TableService
@@ -24,12 +25,16 @@ constructor(
   }
   ngOnInit() {
        this.sub = this.tableService.saveData.subscribe(
-       (str) => {
-        //  console.log(str)
+       () => {
+        //  console.log("in modal componenet")
+        //   console.log(str)
          this.activeModal.close('Close click');
 
       }
      )
+
+     this.componentName = this.tableService.componentName;
+     console.log(this.tableService.getComponentName())
 
      
   }
