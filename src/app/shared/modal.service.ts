@@ -8,7 +8,7 @@ import {
 } from "@angular/core";
 import { TableService } from "../shared/table.service";
 import { AddNewItemComponent } from "../add-new-item/add-new-item.component";
-import { Subscription } from "rxjs";
+// import { Subscription } from "rxjs";
 import { NgModalComponent } from "../ng-modal/ng-modal.component";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 @Injectable()
@@ -18,8 +18,8 @@ export class ModalService {
     private tableService: TableService
 ) { }
 
-  openModal() {
-    this.tableService.setComponentName(AddNewItemComponent)
+  openModal(component) {
+    this.tableService.setComponentName(component)
     this.tableService.onSaveData();
     // this.tableService.setComponentName("add-new-item");
     
