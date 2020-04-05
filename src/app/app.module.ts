@@ -30,7 +30,7 @@ import { PlaceholderDirective } from './shared/placeholder.directive';
     PlaceholderDirective
   ],
   bootstrap: [AppComponent],
-  entryComponents: [NgModalComponent],
+  entryComponents: [NgModalComponent, AddNewItemComponent],
   providers: [TableService]
 
 })

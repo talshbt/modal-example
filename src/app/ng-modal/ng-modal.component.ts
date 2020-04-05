@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ComponentFactoryResolver, ViewContainerRef, ComponentRef, Type } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import {TableService} from '../shared/table.service'
 import { Subscription } from "rxjs";
 import { PlaceholderDirective } from "../shared/placeholder.directive";
+import { AddNewItemComponent } from '../add-new-item/add-new-item.component';
 
 @Component({
   selector: 'app-ng-modal',
@@ -12,10 +13,10 @@ import { PlaceholderDirective } from "../shared/placeholder.directive";
 export class NgModalComponent implements OnInit {
   sub: Subscription;
   componentName = null;
-    @ViewChild(PlaceholderDirective, { static: false })
-  dialogHost: PlaceholderDirective;
+  @ViewChild('container', { read: ViewContainerRef }) container: ViewContainerRef;
+
 constructor(
-    private _NgbActiveModal: NgbActiveModal, private tableService: TableService
+    private _NgbActiveModal: NgbActiveModal, private tableService: TableService, private componentFactoryResolver: ComponentFactoryResolver
   ) {
 
 
@@ -37,8 +38,21 @@ constructor(
 
      this.componentName = this.tableService.componentName;
      console.log(this.tableService.getComponentName())
-
+    this.add(null);
      
   }
+
+    add(component): void {
+    var componentToRender = component;
+    // create the component factory
+    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(AddNewItemComponent);
+
+    // add the component to the view
+    const componentRef = this.container.createComponent(componentFactory);
+
+    // pass some data to the component
+    // componentRef.instance.index = this._counter++;
+  }
+
 
 }
