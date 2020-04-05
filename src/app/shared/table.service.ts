@@ -73,7 +73,10 @@ export class TableService {
 
   setComponentName(name){
     console.log(name)
-    this.componentToRender = name;
+    if(this.componentToRender == null){
+      this.componentToRender = name;
+    }
+    
   }
 
   getComponentName(){

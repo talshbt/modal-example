@@ -47,6 +47,8 @@ export class ModalService {
         }
       }, 1000);
     })();
+    this.tableService.setComponentName(null)
+
   }
 
 
