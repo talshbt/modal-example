@@ -42,9 +42,9 @@ export class TableComponent implements OnInit, OnDestroy {
   }
 
   openModal() {
-
-    this.tableService.onSaveData("blasdklksfasd");
-    this.tableService.setComponentName("add-new-item");
+    this.tableService.setComponentName(AddNewItemComponent)
+    this.tableService.onSaveData();
+    // this.tableService.setComponentName("add-new-item");
     
     this._NgbModal.open(NgModalComponent, {
       windowClass: "modal-job-scrollable",

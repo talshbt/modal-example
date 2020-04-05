@@ -14,6 +14,7 @@ export class TableService {
   private cols = ["id", "name", "email"];
   private rowsDetailsArr = [];
   private rowsDetailsObj = {};
+  componentToRender = null;
 
 
 
@@ -71,12 +72,15 @@ export class TableService {
   }
 
   setComponentName(name){
-    this.componentName = name;
+    console.log(name)
+    this.componentToRender = name;
   }
 
   getComponentName(){
-    return this.componentName;
+    return this.componentToRender;
   }
+
+  
 
   
 }

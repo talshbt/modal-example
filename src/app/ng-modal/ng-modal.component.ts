@@ -38,14 +38,15 @@ constructor(
 
      this.componentName = this.tableService.componentName;
      console.log(this.tableService.getComponentName())
-    this.add(null);
+     var name =  this.tableService.getComponentName();
+    this.add(name);
      
   }
 
     add(component): void {
     var componentToRender = component;
     // create the component factory
-    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(AddNewItemComponent);
+    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(this.tableService.getComponentName());
 
     // add the component to the view
     const componentRef = this.container.createComponent(componentFactory);
