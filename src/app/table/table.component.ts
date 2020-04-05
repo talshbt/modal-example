@@ -43,7 +43,6 @@ export class TableComponent implements OnInit, OnDestroy {
   openModal() {
     this.modalService.openModal(AddNewItemComponent);
     // this.modalService.openModal(TableComponent);
-
   }
 
   onDeleteRow(rowIndex) {
