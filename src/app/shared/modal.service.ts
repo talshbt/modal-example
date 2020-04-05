@@ -1,14 +1,8 @@
 import { Injectable } from '@angular/core';
 import {
   Component,
-  ViewChild,
-  ViewContainerRef,
-  OnInit,
-  OnDestroy
 } from "@angular/core";
 import { TableService } from "../shared/table.service";
-import { AddNewItemComponent } from "../add-new-item/add-new-item.component";
-// import { Subscription } from "rxjs";
 import { NgModalComponent } from "../ng-modal/ng-modal.component";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 @Injectable()
