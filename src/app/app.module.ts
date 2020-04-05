@@ -31,7 +31,7 @@ import { ModalService } from './shared/modal.service';
     PlaceholderDirective
   ],
   bootstrap: [AppComponent],
-  entryComponents: [NgModalComponent, AddNewItemComponent],
+  entryComponents: [NgModalComponent, AddNewItemComponent, TableComponent],
   providers: [TableService, ModalService]
 
 })

@@ -7,6 +7,7 @@ import { TableService } from "../shared/table.service";
 import { AddNewItemComponent } from "../add-new-item/add-new-item.component";
 import { Subscription } from "rxjs";
 import { ModalService } from '../shared/modal.service';
+// import { TableComponent } from '../table/table.component';
 
 @Component({
   selector: "app-table",
@@ -41,6 +42,7 @@ export class TableComponent implements OnInit, OnDestroy {
 
   openModal() {
     this.modalService.openModal(AddNewItemComponent);
+    // this.modalService.openModal(TableComponent);
 
   }
 
