@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { FilterPipe } from './shared/filter.pipe';
- 
+ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 
@@ -21,6 +21,7 @@ import { PostService } from './shared/post.service';
     BrowserModule,
     FormsModule,
     NgbModalModule,
+    HttpClientModule
     
   ],
   declarations: [
