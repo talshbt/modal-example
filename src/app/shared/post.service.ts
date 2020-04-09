@@ -11,8 +11,13 @@ export class PostService {
   private rows = [];
 
   constructor(private http: HttpClient) { }
+  httpData:any;
 
   getCols(){
+     this.http.get("http://localhost:5555").subscribe(data => {
+      this.httpData=data;
+      console.log(data)
+    })
     return this.cols;
   }
 
