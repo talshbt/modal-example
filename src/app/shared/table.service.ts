@@ -1,9 +1,9 @@
 import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
+import { PostService } from './post.service';
 
 @Injectable()
 export class TableService {
-  modalOpened = new Subject<any>();
   rowChanged = new Subject<any>();
   saveData = new Subject<any>();
   rowToEdit = [];
@@ -11,18 +11,17 @@ export class TableService {
   rowIndexToEdit = null;
   componentToOpen =  new Subject<any>();
   componentName = null;
-  private cols = ["id", "name", "email"];
+  private cols = [];
   private rowsDetailsArr = [];
-  private rowsDetailsObj = {};
   componentToRender = null;
 
 
 
-  constructor() {}
+  constructor(private postService: PostService) {}
 
-  getModalEvent() {
-    this.modalOpened.next();
-  }
+  
+
+
 
   addRow(row) {
     if (this.onEditMode) {
@@ -36,6 +35,8 @@ export class TableService {
   }
 
   getCols() {
+    this.cols = this.postService.getCols();
+
     return this.cols;
   }
 

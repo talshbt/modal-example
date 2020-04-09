@@ -14,6 +14,7 @@ import { TableService } from './shared/table.service';
 import { TableComponent } from './table/table.component';
 import { PlaceholderDirective } from './shared/placeholder.directive';
 import { ModalService } from './shared/modal.service';
+import { PostService } from './shared/post.service';
 
 @NgModule({
  imports: [
@@ -32,7 +33,7 @@ import { ModalService } from './shared/modal.service';
   ],
   bootstrap: [AppComponent],
   entryComponents: [NgModalComponent, AddNewItemComponent, TableComponent],
-  providers: [TableService, ModalService]
+  providers: [TableService, ModalService, PostService]
 
 })
 export class AppModule { }
